@@ -10,6 +10,9 @@
   border: 2px solid #74bbca;
   border-radius: 7px;
 }
+.weather-emoji {
+  font-size: 60px;
+}
 
 h1 {
   color: #524a79;
@@ -26,4 +29,5 @@ li {
   margin: 0;
   padding: 0;
   list-style: none;
+  text-transform: capitalize;
 }
