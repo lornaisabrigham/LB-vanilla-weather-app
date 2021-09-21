@@ -53,8 +53,17 @@ function handleSearch(event) {
   let cityInputElement = document.querySelector("#city-input");
   searchCity(cityInputElement.value);
 }
+function toFahrenheit(event) {
+  event.preventDefault();
+  let fahrenheitUnit = (20 * 9) / 5 + 32;
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(fahrenheitUnit);
+}
 
 searchCity("brighton");
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSearch);
+
+let fahrenheitElement = document.querySelector("#fahrenheit");
+fahrenheitElement.addEventListener("click", toFahrenheit);
