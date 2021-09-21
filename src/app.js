@@ -1,6 +1,3 @@
-let apiKey = "93b4374da9dab6e7d8fc281a4d8ee692";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Brighton&appid=${apiKey}&units=metric`;
-
 function formatDate(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
@@ -44,4 +41,20 @@ function displayTemperature(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
-axios.get(apiUrl).then(displayTemperature);
+
+function searchCity(city) {
+  let apiKey = "93b4374da9dab6e7d8fc281a4d8ee692";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayTemperature);
+}
+
+function handleSearch(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  searchCity(cityInputElement.value);
+}
+
+searchCity("brighton");
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSearch);
