@@ -40,6 +40,8 @@ function displayTemperature(response) {
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  celciusTemperature = response.data.main.temp;
 }
 
 function searchCity(city) {
@@ -55,15 +57,34 @@ function handleSearch(event) {
 }
 function toFahrenheit(event) {
   event.preventDefault();
-  let fahrenheitUnit = (20 * 9) / 5 + 32;
+  celciusElement.classList.remove("active");
+  celciusElement.classList.add("inactive");
+  fahrenheitElement.classList.remove("inactive");
+  fahrenheitElement.classList.add("active");
+  let fahrenheitUnit = (celciusTemperature * 9) / 5 + 32;
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(fahrenheitUnit);
 }
 
-searchCity("brighton");
+function toCelcius(event) {
+  event.preventDefault();
+  fahrenheitElement.classList.remove("active");
+  fahrenheitElement.classList.add("inactive");
+  celciusElement.classList.remove("inactive");
+  celciusElement.classList.add("active");
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celciusTemperature);
+}
+
+let celciusTemperature = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSearch);
 
 let fahrenheitElement = document.querySelector("#fahrenheit");
 fahrenheitElement.addEventListener("click", toFahrenheit);
+
+let celciusElement = document.querySelector("#celcius");
+celciusElement.addEventListener("click", toCelcius);
+
+searchCity("brighton");
