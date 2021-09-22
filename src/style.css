@@ -34,6 +34,7 @@
 .weather-forecast {
   color: #524a79;
   text-align: center;
+  font-size: 15px;
 }
 .weather-forecast-temperature-max {
   opacity: 0.9;
