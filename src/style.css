@@ -11,23 +11,6 @@
   border-radius: 7px;
 }
 
-.active {
-  cursor: default;
-  text-decoration: none;
-  color: black;
-  font-weight: bold;
-}
-.active:hover {
-  text-decoration: none;
-  color: black;
-}
-
-.inactive {
-  cursor: default;
-  text-decoration: none;
-  color: paleturquoise;
-}
-
 .line {
   color: paleturquoise;
 }

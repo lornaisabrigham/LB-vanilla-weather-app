@@ -104,36 +104,10 @@ function handleSearch(event) {
   let cityInputElement = document.querySelector("#city-input");
   searchCity(cityInputElement.value);
 }
-function toFahrenheit(event) {
-  event.preventDefault();
-  celciusElement.classList.remove("active");
-  celciusElement.classList.add("inactive");
-  fahrenheitElement.classList.remove("inactive");
-  fahrenheitElement.classList.add("active");
-  let fahrenheitUnit = (celciusTemperature * 9) / 5 + 32;
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(fahrenheitUnit);
-}
-
-function toCelcius(event) {
-  event.preventDefault();
-  fahrenheitElement.classList.remove("active");
-  fahrenheitElement.classList.add("inactive");
-  celciusElement.classList.remove("inactive");
-  celciusElement.classList.add("active");
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(celciusTemperature);
-}
 
 let celciusTemperature = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSearch);
-
-let fahrenheitElement = document.querySelector("#fahrenheit");
-fahrenheitElement.addEventListener("click", toFahrenheit);
-
-let celciusElement = document.querySelector("#celcius");
-celciusElement.addEventListener("click", toCelcius);
 
 searchCity("brighton");
