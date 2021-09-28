@@ -21,7 +21,9 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
+
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
   let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
@@ -49,6 +51,14 @@ function displayForecast() {
   forecastElement.innerHTML = forecastHTML;
 }
 
+function daysForecast(coordinates) {
+  let apiKey = "93b4374da9dab6e7d8fc281a4d8ee692";
+  let lat = coordinates.lat;
+  let lon = coordinates.lon;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
@@ -70,6 +80,8 @@ function displayTemperature(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
   celciusTemperature = response.data.main.temp;
+
+  daysForecast(response.data.coord);
 }
 
 function searchCity(city) {
@@ -116,4 +128,3 @@ let celciusElement = document.querySelector("#celcius");
 celciusElement.addEventListener("click", toCelcius);
 
 searchCity("brighton");
-displayForecast();
