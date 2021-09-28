@@ -1,19 +1,18 @@
 .weather-app-wrapper {
-  max-width: 550px;
+  max-width: 450px;
   margin: 10px auto;
   padding: 15px;
+  border-radius: 10px;
 }
 .weather-app {
-  max-width: 500px;
+  max-width: 450px;
   margin: 20px auto;
   padding: 15px;
-  border: 2px solid #74bbca;
+
   border-radius: 7px;
+  background-color: rgb(69, 57, 83, 0.1);
 }
 
-.line {
-  color: paleturquoise;
-}
 .weather-forecast {
   color: #524a79;
   text-align: center;
@@ -26,12 +25,19 @@
   opacity: 0.7;
 }
 
+.btn-primary {
+  color: white;
+  background-color: rgb(69, 57, 83);
+  border: none;
+}
+
 h1 {
-  color: #524a79;
-  font-size: 40px;
+  color: rgb(37, 22, 27);
+  font-size: 35px;
   line-height: 45px;
-  margin-bottom: 5;
+  margin-bottom: 15px;
   text-align: center;
+  font-weight: bold;
 }
 ul {
   margin: 0;
